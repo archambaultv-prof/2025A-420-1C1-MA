@@ -11,7 +11,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '2025A-420-1C1-MA',
-  tagline: 'Exploration du domaine de l\'informatique',
   // favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -46,14 +45,9 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/archambaultv-prof/2025A-420-1C1-MA/tree/main/',
-        },
+        docs: false,
         blog: false,
+        pages: {},
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -66,43 +60,13 @@ const config = {
     ({
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
-      docs:{
-        sidebar: {
-          hideable: true,
-          autoCollapseCategories: true,
-        }
-      },
       navbar: {
         title: 'Exploration du domaine de l\'informatique',
         logo: {
           alt: 'My Site Logo',
           src: 'img/1C1.svg',
         },
-        items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'scheduleSidebar',
-            position: 'left',
-            label: 'Échéancier',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'classNotes',
-            position: 'left',
-            label: 'Notes de cours',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'evaluations',
-            position: 'left',
-            label: 'Évaluations',
-          },
-          {
-            to: 'https://github.com/archambaultv-prof/2025A-420-1C1-MA/',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
+        items: [],
       },
       footer: {
         style: 'dark',
@@ -113,11 +77,6 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
-  plugins: [
-    [require.resolve('docusaurus-lunr-search'), {
-      languages: ['fr'],
-    }]
-  ]
 };
 
 export default config;
