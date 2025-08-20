@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "start:g2": "docusaurus start --config docusaurus.config.g2.js",
+    "start:g3": "docusaurus start --config docusaurus.config.g3.js",
+    "build:g2": "docusaurus build --config docusaurus.config.g2.js --out-dir build/g2",
+    "build:g3": "docusaurus build --config docusaurus.config.g3.js --out-dir build/g3",
+    "build:all": "npm run build:g2 && npm run build:g3",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
