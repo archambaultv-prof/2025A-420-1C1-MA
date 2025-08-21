@@ -26,3 +26,5 @@ jobs:
         run: |
           npm run build:g2
           npm run build:g3
+          npm run build:g4
+          npm run build:g5

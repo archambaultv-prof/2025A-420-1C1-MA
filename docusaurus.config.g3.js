@@ -9,7 +9,6 @@ module.exports = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/2025A-420-1C1-MA/g3/',
 
-  // One docs plugin, pointing to g1
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
@@ -30,8 +29,18 @@ module.exports = {
       ...base.themeConfig.navbar,
       items: [
         { type: 'docSidebar', sidebarId: 'schedule',    label: 'Échéancier',      position: 'left' },
-        { type: 'docSidebar', sidebarId: 'notes',       label: 'Notes de cours', position: 'left' },
+        // { type: 'docSidebar', sidebarId: 'notes',       label: 'Notes de cours', position: 'left' },
         { type: 'docSidebar', sidebarId: 'evaluations', label: 'Évaluations',  position: 'left' },
+                  {
+            href: 'https://github.com/archambaultv-prof/2025A-420-1C1-MA/',
+            label: 'GitHub',
+            position: 'right',
+          },
+        { type: 'html',
+          // Use a div with the same classes Docusaurus applies to links so font & spacing match
+          value: '<div class="navbar__item">Site du groupe 3 (cours du jeudi)</div>',
+          position: 'right'
+        },
       ],
     },
   },

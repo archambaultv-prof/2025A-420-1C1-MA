@@ -66,7 +66,8 @@ const config = {
           alt: 'My Site Logo',
           src: 'img/1C1.svg',
         },
-        items: [],
+        items: [
+        ],
       },
       footer: {
         style: 'dark',
