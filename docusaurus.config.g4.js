@@ -37,6 +37,11 @@ module.exports = {
             label: 'GitHub',
             position: 'right',
           },
+        { type: 'html',
+          // Use a div with the same classes Docusaurus applies to links so font & spacing match
+          value: '<div class="navbar__item">Site du groupe 4 (cours du mardi)</div>',
+          position: 'right'
+        },
       ],
     },
   },
