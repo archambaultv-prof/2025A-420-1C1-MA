@@ -9,7 +9,6 @@ module.exports = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/2025A-420-1C1-MA/g2/',
 
-  // One docs plugin, pointing to g1
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
@@ -30,7 +29,7 @@ module.exports = {
       ...base.themeConfig.navbar,
       items: [
         { type: 'docSidebar', sidebarId: 'schedule',    label: 'Échéancier',      position: 'left' },
-        { type: 'docSidebar', sidebarId: 'notes',       label: 'Notes de cours', position: 'left' },
+        // { type: 'docSidebar', sidebarId: 'notes',       label: 'Notes de cours', position: 'left' },
         { type: 'docSidebar', sidebarId: 'evaluations', label: 'Évaluations',  position: 'left' },
       ],
     },

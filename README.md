@@ -1,41 +1,14 @@
-# Website
+# 1C1 - Exploration du domaine - Collège de Maisonneuve
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Ce dépôt contient le matériel pédagogique du cours exploration du domaine
+420-1C1-MA donné au [Collège de Maisonneuve](https://www.cmaisonneuve.qc.ca/)
+par le professeur Vincent Archambault-Bouffard à l'automne 2025.
 
-## Installation
+## Site web du cours
 
-```bash
-yarn
-```
+Le site web du cours est accessible via github pages aux adresses suivantes en fonction du groupe :
 
-## Local Development
-
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- [Groupe 2 (mercredi)](https://archambaultv-prof.github.io/2025E-420-1C1-MA/g2)
+- [Groupe 3 (jeudi)](https://archambaultv-prof.github.io/2025E-420-1C1-MA/g3)
+- [Groupe 4 (mardi)](https://archambaultv-prof.github.io/2025E-420-1C1-MA/g4)
+- [Groupe 5 (lundi)](https://archambaultv-prof.github.io/2025E-420-1C1-MA/g5)

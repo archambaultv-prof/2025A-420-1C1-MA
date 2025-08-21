@@ -7,15 +7,15 @@ module.exports = {
   url: 'https://archambaultv-prof.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/2025A-420-1C1-MA/g3/',
+  baseUrl: '/2025A-420-1C1-MA/g5/',
 
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
       {
-        path: 'g3',
-        routeBasePath: '/',               // this cohort lives at the root of /g3/
-        sidebarPath: require.resolve('./sidebars.g3.js'),
+        path: 'g5',
+        routeBasePath: '/',               // this cohort lives at the root of /g5/
+        sidebarPath: require.resolve('./sidebars.g5.js'),
       },
     ],
     [require.resolve('docusaurus-lunr-search'), {
