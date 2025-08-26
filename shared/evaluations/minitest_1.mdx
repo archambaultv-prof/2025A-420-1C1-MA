@@ -1,9 +1,56 @@
+import MultipleChoiceTabs from '@site/src/components/MultipleChoice/MultipleChoiceTabs';
+import MultipleChoice from '@site/src/components/MultipleChoice';
+import MultipleChoiceOption from '@site/src/components/MultipleChoice/MultipleChoiceOption';
+
 - **Pondération** : 8%
 - **Semaine du mini test** : Semaine 3
 - **Modalité** : Individuel
 
-:::warning
+Le mini test 1 contient environ 5 questions à choix multiples portant sur le
+contenu des semaines 1 et 2.
 
-Plus de détails sur le minitest 1 seront fournis en temps voulu.
+## Exemples de questions
 
-:::
+<MultipleChoiceTabs>
+<MultipleChoice>
+    Qu'est-ce qu'un préalable absolu ?
+    <MultipleChoiceOption isCorrect>
+        Un cours est un préalable absolu lorsqu'il doit être suivi et réussi (note ≥ 60 %) avant un autre cours.
+    </MultipleChoiceOption>
+    <MultipleChoiceOption>
+        Un cours est un préalable absolu lorsqu'il doit être suivi en même temps qu'un autre cours.
+    </MultipleChoiceOption>
+    <MultipleChoiceOption>
+        Un cours est un préalable absolu lorsqu'il doit être suivi et réussi (note ≥ 60 %) ou
+        échoué, mais avec une note d'au moins 50 %, avant un autre cours.
+    </MultipleChoiceOption>
+</MultipleChoice>
+<MultipleChoice>
+    Vrai ou faux : la technique en informatique prépare uniquement au marché du travail ?
+    <MultipleChoiceOption>
+        Vrai
+    </MultipleChoiceOption>
+    <MultipleChoiceOption isCorrect>
+        Faux
+    </MultipleChoiceOption>
+
+    <details>
+    <summary>Explication</summary>
+    La technique en informatique prépare également à la poursuite d'études à l'université.
+    </details>
+
+</MultipleChoice>
+<MultipleChoice>
+    Selon les offres d'emploi consultées en cours, après la technique, je peux travailler pour le gouvernement ou les municipalités
+    pour un salaire d'environ :
+    <MultipleChoiceOption>
+        20 000 $ à 40 000 $
+    </MultipleChoiceOption>
+    <MultipleChoiceOption isCorrect>
+        40 000 $ à 70 000 $
+    </MultipleChoiceOption>
+    <MultipleChoiceOption>
+        70 000 $ à 100 000 $
+    </MultipleChoiceOption>
+</MultipleChoice>
+</MultipleChoiceTabs>
