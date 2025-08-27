@@ -29,7 +29,7 @@ module.exports = {
       ...base.themeConfig.navbar,
       items: [
         { type: 'docSidebar', sidebarId: 'schedule',    label: 'Échéancier',      position: 'left' },
-        // { type: 'docSidebar', sidebarId: 'notes',       label: 'Notes de cours', position: 'left' },
+        { type: 'docSidebar', sidebarId: 'notes',       label: 'Notes de cours', position: 'left' },
         { type: 'html',
           // Use a div with the same classes Docusaurus applies to links so font & spacing match
           value: '<div class="navbar__item">Site du groupe 5 (cours du lundi)</div>',
