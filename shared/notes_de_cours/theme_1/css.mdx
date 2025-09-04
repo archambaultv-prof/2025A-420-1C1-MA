@@ -1,0 +1,213 @@
+
+
+CSS, ou Cascading Style Sheets, est le langage de stylisation qui transforme
+les documents HTML bruts en expériences visuelles attrayantes et
+fonctionnelles. Tandis qu'HTML définit la structure et le contenu d'une page
+web, CSS contrôle entièrement sa présentation visuelle : couleurs, polices,
+espacement, positionnement, animations et bien plus encore.
+
+Le terme "Cascading" fait référence au mécanisme de priorité qui détermine
+quelles règles de style s'appliquent lorsque plusieurs règles ciblent le même
+élément. Cette cascade permet une flexibilité remarquable dans la gestion des
+styles, permettant aux développeurs de créer des systèmes de design cohérents
+et maintenables.
+
+CSS a été créé pour séparer la présentation de la structure, un principe
+fondamental du développement web moderne. Cette séparation permet une meilleure
+maintenance du code, une collaboration plus efficace entre designers et
+développeurs, et la possibilité de changer complètement l'apparence d'un site
+sans modifier son contenu HTML.
+
+## Anatomie d'une règle CSS
+
+Une règle CSS est composée de deux parties principales : un sélecteur qui
+détermine quels éléments HTML seront affectés, et un bloc de déclaration qui
+contient les propriétés de style à appliquer.
+
+```css
+sélecteur {
+    propriété: valeur;
+    autre-propriété: autre-valeur;
+}
+```
+
+Le sélecteur peut cibler des éléments de différentes manières : par nom de
+balise, par classe, par identifiant, ou selon des critères plus complexes. Le
+bloc de déclaration, délimité par des accolades, contient une ou plusieurs
+déclarations séparées par des points-virgules.
+
+Chaque déclaration se compose d'une propriété (comme `color`, `font-size`, ou
+`margin`) suivie de deux points et d'une valeur. La valeur peut être un
+mot-clé, un nombre avec une unité, une couleur, ou une expression plus complexe
+selon la propriété.
+
+## Types de sélecteurs CSS
+
+Nous verrons ici que les sélecteurs de base. 
+
+Le sélecteur d'élément cible toutes les instances d'une balise HTML spécifique.
+Par exemple, `p` sélectionne tous les paragraphes, `h1` tous les titres de
+niveau 1. C'est le sélecteur le plus basique et le plus direct.
+
+Le sélecteur de classe, précédé d'un point (`.ma-classe`), cible tous les
+éléments ayant l'attribut `class="ma-classe"`. Les classes sont réutilisables
+et constituent l'un des mécanismes les plus puissants pour organiser et
+styliser le contenu.
+
+Le sélecteur d'identifiant, précédé d'un dièse (`#mon-id`), cible l'élément
+unique ayant l'attribut `id="mon-id"`. Les identifiants doivent être uniques
+dans un document et ont une priorité élevée dans la cascade.
+
+## Système de cascade et spécificité
+
+La cascade CSS détermine quelles règles s'appliquent lorsque plusieurs règles
+ciblent le même élément. Ce système suit un ordre de priorité précis qui
+combine plusieurs facteurs.
+
+La spécificité est calculée selon un système de points : les identifiants
+valent 100 points, les classes 10 points, et les éléments 1 point. Plus la
+spécificité est élevée, plus la règle a de priorité.
+
+L'origine des styles influence également la cascade : les styles inline (dans
+l'attribut style) ont la priorité la plus élevée, suivis des styles internes
+(dans une balise `<style>`), puis des feuilles de style externes.
+
+La position dans le code source joue aussi un rôle : en cas d'égalité de
+spécificité, la dernière règle déclarée l'emporte.
+
+## Méthodes d'intégration CSS
+
+### CSS inline
+
+Le CSS inline est défini directement dans l'attribut `style` d'un élément HTML.
+Cette méthode a la priorité la plus élevée mais elle mélange présentation et
+structure, ce qui va à l'encontre des bonnes pratiques.
+
+```html
+<p style="color: blue; font-size: 18px;">Texte stylisé</p>
+```
+
+Cette approche convient uniquement pour des styles très spécifiques ou des
+tests rapides.
+
+### CSS interne
+
+Le CSS interne est défini dans une balise `<style>` placée dans la section
+`<head>` du document HTML. Cette méthode garde les styles centralisés dans le
+document mais les limite à une seule page.
+
+```html
+<style>
+    p {
+        color: blue;
+        font-size: 18px;
+    }
+</style>
+```
+
+### CSS externe
+
+Le CSS externe, la méthode recommandée, utilise des fichiers `.css` séparés
+liés au document HTML via la balise `<link>`. Cette approche permet la
+réutilisation des styles across multiple pages et améliore les performances
+grâce à la mise en cache.
+
+```html
+<link rel="stylesheet" href="styles.css">
+```
+
+## Propriétés CSS fondamentales
+
+### Propriétés de couleur et texte
+
+La propriété `color` définit la couleur du texte. Elle accepte des noms de couleurs, des codes hexadécimaux ou des valeurs RGB.
+
+```css
+p {
+    color: blue;        /* Nom de couleur */
+    color: #FF0000;     /* Code hexadécimal (rouge) */
+    color: rgb(0, 255, 0); /* Valeur RGB (vert) */
+}
+```
+
+La propriété `font-size` contrôle la taille du texte. Les unités les plus courantes sont px (pixels) et em (relatif).
+
+```css
+h1 { font-size: 24px; }
+p { font-size: 16px; }
+```
+
+### Propriétés de police
+
+La propriété `font-family` définit la police utilisée. Il est recommandé de spécifier plusieurs alternatives.
+
+```css
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    font-family: "Times New Roman", serif;
+}
+```
+
+Les propriétés `font-weight` et `font-style` contrôlent l'apparence du texte :
+
+```css
+strong { font-weight: bold; }
+em { font-style: italic; }
+```
+
+### Propriétés de fond
+
+La propriété `background-color` définit la couleur de fond d'un élément.
+
+```css
+body {
+    background-color: #f0f0f0;
+}
+div {
+    background-color: white;
+}
+```
+
+### Propriétés d'espacement
+
+Les propriétés `margin` et `padding` contrôlent l'espacement autour et à l'intérieur des éléments.
+
+```css
+.container {
+    margin: 20px;     /* Espacement extérieur */
+    padding: 15px;    /* Espacement intérieur */
+}
+```
+
+### Propriétés de bordure
+
+La propriété `border` ajoute une bordure autour d'un élément. Elle combine largeur, style et couleur.
+
+```css
+.box {
+    border: 2px solid black;
+    border: 1px dashed red;
+}
+```
+
+### Propriétés de taille
+
+Les propriétés `width` et `height` définissent les dimensions d'un élément.
+
+```css
+.image {
+    width: 300px;
+    height: 200px;
+}
+```
+
+### Propriétés d'alignement
+
+La propriété `text-align` contrôle l'alignement horizontal du texte.
+
+```css
+h1 { text-align: center; }
+p { text-align: justify; }
+```
