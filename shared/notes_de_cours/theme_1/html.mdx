@@ -1,0 +1,213 @@
+
+HTML, ou HyperText Markup Language, est le langage fondamental du web. Il
+s'agit d'un langage de balisage qui permet de structurer et d'organiser le
+contenu des pages web. Contrairement aux langages de programmation
+traditionnels, HTML utilise un système de balises (tags) pour définir la
+signification sémantique et la structure des différents éléments d'une page.
+
+Le HTML fonctionne selon le principe de l'hypertexte, qui permet de créer des
+liens entre différents documents et ressources. Cette capacité de liaison est
+ce qui rend le web interactif et navigable. Chaque page web que vous visitez
+est construite avec HTML, même si elle peut également utiliser d'autres
+technologies comme CSS pour la présentation et JavaScript pour l'interactivité.
+
+HTML est un standard maintenu par le World Wide Web Consortium (W3C), ce qui
+garantit sa compatibilité universelle entre les différents navigateurs et
+plateformes. La version actuelle, HTML5, apporte de nombreuses améliorations
+par rapport aux versions précédentes, notamment en termes de sémantique,
+d'accessibilité et de support multimédia.
+
+## Concept de balises et d'éléments
+
+Le HTML fonctionne avec un système de balises qui encapsulent le contenu. Une balise est un marqueur qui indique au navigateur comment interpréter et afficher une portion de texte. La plupart des balises viennent par paires : une balise d'ouverture et une balise de fermeture.
+
+La syntaxe de base d'une balise est la suivante : `<nom-de-balise>contenu</nom-de-balise>`. La balise d'ouverture commence par `<` et se termine par `>`, tandis que la balise de fermeture est identique mais commence par `</`. Le contenu placé entre ces balises sera affecté par les propriétés de l'élément.
+
+Certaines balises sont auto-fermantes et n'ont pas besoin de balise de fermeture. Ces balises, appelées éléments vides, se terminent par `/>` comme `<img />` ou `<br />`. Elles représentent généralement des éléments qui n'ont pas de contenu textuel, comme les images ou les retours à la ligne.
+
+Les balises peuvent également contenir des attributs, qui sont des propriétés supplémentaires qui modifient le comportement ou l'apparence de l'élément. Les attributs sont placés dans la balise d'ouverture et suivent la syntaxe `attribut="valeur"`.
+
+## Structure fondamentale d'un document HTML
+
+Tout document HTML respecte une structure hiérarchique bien définie qui permet aux navigateurs de l'interpréter correctement. Cette structure commence toujours par la déclaration DOCTYPE, qui indique au navigateur quelle version d'HTML utiliser.
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre de ma page</title>
+</head>
+<body>
+    <h1>Contenu principal</h1>
+    <p>Paragraphe de texte.</p>
+</body>
+</html>
+```
+
+La déclaration `<!DOCTYPE html>` est obligatoire et doit être la première ligne du document. Elle indique que le document utilise HTML5, la version la plus récente du standard.
+
+L'élément `<html>` est l'élément racine qui contient tout le contenu de la page. L'attribut `lang` spécifie la langue principale du document, ce qui est important pour l'accessibilité et le référencement.
+
+## Section HEAD : métadonnées et configuration
+
+La section `<head>` contient les métadonnées du document, c'est-à-dire des informations sur la page qui ne sont pas directement visibles par l'utilisateur mais qui sont essentielles pour le navigateur et les moteurs de recherche.
+
+L'élément `<meta charset="UTF-8">` définit l'encodage des caractères du document. UTF-8 est l'encodage standard qui supporte tous les caractères Unicode, permettant d'afficher correctement les accents, les caractères spéciaux et les alphabets non-latins.
+
+La balise `<meta name="viewport">` est cruciale pour le design responsive. Elle contrôle comment la page est affichée sur les appareils mobiles en définissant les paramètres de la zone d'affichage.
+
+Le titre défini par `<title>` apparaît dans l'onglet du navigateur et est utilisé par les moteurs de recherche comme titre principal dans les résultats de recherche. Il doit être descriptif et unique pour chaque page.
+
+D'autres éléments peuvent être inclus dans le head, comme les liens vers les feuilles de style CSS, les scripts JavaScript, les favicons, et diverses métadonnées pour les réseaux sociaux.
+
+## Section BODY : contenu visible
+
+La section `<body>` contient tout le contenu visible de la page web. C'est ici que vous placez le texte, les images, les liens, les formulaires et tous les autres éléments que les utilisateurs verront et avec lesquels ils interagiront.
+
+Le body peut contenir de nombreux types d'éléments organisés de manière hiérarchique. La structure sémantique appropriée est importante non seulement pour l'apparence de la page, mais aussi pour l'accessibilité et le référencement.
+
+## Principales balises HTML
+
+### Balises de titre et hiérarchie
+
+Les balises de titre vont de `<h1>` à `<h6>` et définissent une hiérarchie de contenu. `<h1>` représente le titre principal de la page, tandis que les autres niveaux créent une structure de sous-titres.
+
+```html
+<h1>Titre principal</h1>
+<h2>Titre de section</h2>
+<h3>Titre de sous-section</h3>
+```
+
+Cette hiérarchie est cruciale pour l'accessibilité car les lecteurs d'écran l'utilisent pour naviguer dans le contenu. Elle influence également le référencement naturel.
+
+### Balises de texte et paragraphes
+
+La balise `<p>` définit un paragraphe de texte. Elle ajoute automatiquement des marges avant et après le contenu pour séparer visuellement les paragraphes.
+
+```html
+<p>Ceci est un paragraphe de texte normal.</p>
+<p>Ceci est un autre paragraphe.</p>
+```
+
+Pour le formatage inline, plusieurs balises sont disponibles : `<strong>` pour le texte important (gras), `<em>` pour l'emphase (italique), `<mark>` pour le surlignage, et `<small>` pour le texte de taille réduite.
+
+### Balises de liste
+
+HTML propose deux types de listes principales : les listes non ordonnées (`<ul>`) et les listes ordonnées (`<ol>`). Chaque élément de liste est défini par `<li>`.
+
+```html
+<ul>
+    <li>Premier élément</li>
+    <li>Deuxième élément</li>
+</ul>
+
+<ol>
+    <li>Première étape</li>
+    <li>Deuxième étape</li>
+</ol>
+```
+
+Les listes de définition (`<dl>`) permettent de créer des paires terme-définition avec `<dt>` et `<dd>`.
+
+### Balises de liens et navigation
+
+La balise `<a>` (anchor) crée des liens hypertextes. L'attribut `href` spécifie la destination du lien.
+
+```html
+<a href="https://example.com">Lien externe</a>
+<a href="#section">Lien interne</a>
+<a href="mailto:contact@example.com">Lien email</a>
+```
+
+### Balises d'images et médias
+
+La balise `<img>` insère des images. Les attributs `src` (source) et `alt` (texte alternatif) sont essentiels.
+
+```html
+<img src="image.jpg" alt="Description de l'image">
+```
+
+HTML5 introduit également `<video>` et `<audio>` pour le contenu multimédia natif.
+
+### Balises de structure sémantique
+
+HTML5 apporte des balises sémantiques qui donnent du sens à la structure de la page :
+
+```html
+<header>En-tête de la page</header>
+<nav>Navigation principale</nav>
+<main>
+    <article>Contenu principal</article>
+    <aside>Contenu secondaire</aside>
+</main>
+<footer>Pied de page</footer>
+```
+
+Ces balises améliorent l'accessibilité et aident les moteurs de recherche à comprendre la structure du contenu.
+
+### Balises de tableau
+
+Les tableaux sont créés avec `<table>`, structurés avec `<thead>`, `<tbody>`, et `<tfoot>`, et contiennent des rangées (`<tr>`) et des cellules (`<td>` ou `<th>`).
+
+```html
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Jean</td>
+            <td>25</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+### Balises de formulaire
+
+Les formulaires utilisent `<form>` comme conteneur et diverses balises pour les champs de saisie :
+
+```html
+<form>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom">
+    
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email">
+    
+    <button type="submit">Envoyer</button>
+</form>
+```
+
+## Attributs HTML importants
+
+Les attributs HTML fournissent des informations supplémentaires sur les éléments. Certains attributs sont universels et peuvent être utilisés sur presque tous les éléments, tandis que d'autres sont spécifiques à certaines balises.
+
+L'attribut `id` donne un identifiant unique à un élément, permettant de le cibler spécifiquement avec CSS ou JavaScript. L'attribut `class` permet de grouper des éléments sous une même catégorie pour un stylage cohérent.
+
+L'attribut `title` fournit une information supplémentaire qui apparaît au survol de l'élément. L'attribut `lang` peut spécifier la langue d'une portion spécifique du document.
+
+## Validation et bonnes pratiques
+
+La validation HTML vérifie que votre code respecte les standards définis par le W3C. Un HTML valide garantit une meilleure compatibilité entre navigateurs et une accessibilité optimale.
+
+Quelques bonnes pratiques essentielles :
+- Toujours inclure la déclaration DOCTYPE
+- Fermer toutes les balises ouvertes
+- Utiliser des attributs alt pour les images
+- Structurer le contenu de manière logique et hiérarchique
+- Utiliser des balises sémantiques appropriées
+- Valider régulièrement votre code
+
+## Accessibilité et HTML
+
+L'accessibilité web consiste à rendre le contenu utilisable par tous, y compris les personnes avec des handicaps. HTML joue un rôle crucial dans l'accessibilité en fournissant une structure sémantique claire.
+
+L'utilisation correcte des balises de titre, l'ajout d'attributs alt aux images, l'association des labels aux champs de formulaire, et l'utilisation de balises sémantiques appropriées sont autant d'éléments qui améliorent l'accessibilité.
+
+Les lecteurs d'écran et autres technologies d'assistance s'appuient sur la structure HTML pour naviguer et interpréter le contenu. Un HTML bien structuré bénéficie donc à tous les utilisateurs.
