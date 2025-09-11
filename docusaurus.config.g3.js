@@ -35,6 +35,7 @@ module.exports = {
           value: '<div class="navbar__item">Site du groupe 3 (cours du jeudi)</div>',
           position: 'right'
         },
+        {href: 'https://archambaultv-prof.github.io/git', label: 'Tutoriel Git', position: 'right'},
         { type: 'docSidebar', sidebarId: 'evaluations', label: 'Évaluations',  position: 'left' },
                   {
             href: 'https://github.com/archambaultv-prof/2025A-420-1C1-MA/',
