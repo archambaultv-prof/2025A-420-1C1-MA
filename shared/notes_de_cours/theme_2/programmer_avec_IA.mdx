@@ -1,0 +1,87 @@
+
+## Introduction
+
+**Durée totale : 90 minutes**
+
+**Individuel ou en équipe de 2 ou 3 personnes**
+
+Voici une série d'exercices pratiques pour tester l'utilisation
+d'une intelligence artificielle. Plutôt que d'écrire chaque ligne de code
+manuellement, vous allez apprendre à collaborer avec une IA (comme GitHub
+Copilot, ChatGPT, ou Claude) pour créer des programmes rapidement.
+
+Pour chaque problème, vous devrez :
+- Formuler clairement ce que vous voulez accomplir
+- Comprendre et évaluer le code généré
+- Déboguer et améliorer les solutions proposées
+- Itérer rapidement sur vos idées
+
+:::info
+
+À la fin du cours, il y aura un retour de votre expérience avec
+l'IA pour programmer. Qu'est-ce qui a bien fonctionné ? Avez-vous
+rencontré des difficultés ? Comprenez-vous le code généré par l'IA ?
+
+:::
+
+---
+
+## Exercice 1 : Calculateur de moyenne
+
+Demandez à l'IA de créer un programme qui :
+- Demande à l'utilisateur d'entrer des notes
+- Calcule la moyenne
+- Affiche la moyenne avec deux décimales
+- Gère les erreurs d'entrée (valeurs négatives, texte au lieu de chiffres)
+
+---
+
+## Exercice 2 : Analyseur de fichiers texte
+
+Demandez à l'IA de créer un programme qui :
+- Lit un fichier texte fourni par l'utilisateur
+- Compte le nombre de mots, de phrases et de paragraphes
+- Trouve les 10 mots les plus fréquents (en excluant les mots courants comme "le", "la", "de")
+- Génère un fichier de rapport au format JSON
+
+---
+
+## Exercice 3 : Jeu de devinette avec IA
+
+Créez un jeu où :
+- L'utilisateur pense à un animal
+- Le programme pose des questions oui/non pour deviner l'animal
+- Si le programme se trompe, il demande quelle était la bonne réponse et une question pour différencier cet animal
+- Le programme **apprend** de ses erreurs en sauvegardant les nouvelles questions dans un fichier JSON
+- Au redémarrage, le programme se souvient de ce qu'il a appris
+
+---
+
+## Exercice 4 : Scraper et visualisateur de données
+
+Demandez à l'IA de créer un programme qui :
+- Récupère des données d'une API publique (par exemple : météo, cryptomonnaies, ou nouvelles)
+- Stocke ces données dans une base de données SQLite
+- Génère des graphiques avec matplotlib ou plotly
+- Permet à l'utilisateur de choisir différentes périodes ou types de visualisation
+- Rafraîchit automatiquement les données toutes les X minutes
+
+---
+
+## Exercice 5 : Mini-Reddit avec serveur web
+
+Créez une application web simplifiée style Reddit avec :
+
+**Fonctionnalités backend (Flask ou FastAPI) :**
+- Créer un post (titre + contenu)
+- Lister tous les posts
+- Upvoter/Downvoter un post
+- Ajouter des commentaires à un post
+- Trier les posts par popularité ou date
+- Base de données SQLite pour la persistance
+
+**Fonctionnalités frontend :**
+- Page HTML simple pour afficher les posts
+- Formulaire pour créer un nouveau post
+- Boutons pour voter
+- Section de commentaires
