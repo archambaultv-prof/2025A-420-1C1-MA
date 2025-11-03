@@ -1,0 +1,166 @@
+## 🎯 Objectif
+
+Vous allez :
+1. Dupliquer votre machine virtuelle Ubuntu sous VMware Workstation Pro.
+2. Configurer une première VM comme **serveur web**.
+3. Utiliser une seconde VM comme **client**.
+4. Servir un petit site statique à l'aide de **Python (HTTP)**.
+
+:::warning
+
+Pour le projet 2, vous devez fournir des captures d'écran de chaque étape réalisée
+ainsi qu'une brève description de ce que vous avez fait.
+
+:::
+
+---
+
+## 🧩 Étape 1 — Cloner la machine virtuelle
+
+Plutôt que de refaire toute l’installation d’Ubuntu, nous allons cloner la VM existante.
+Ainsi, les deux machines auront la même configuration de base.
+
+1. Dans VMware Workstation Pro, choisir votre VM Ubuntu et dans le menu cliquer sur :
+   `VM > Manage > Clone ...`
+
+   ![Cloner une VM dans VMware](/img/serveur_linux/vm_clone.png)
+
+2. Suivre l’assistant et créer une copie complète (Full Clone).
+
+    ![Assistant de clonage dans VMware](/img/serveur_linux/vm_full_clone.png)
+
+---
+
+## 🧱 Étape 2 — Préparer le répertoire du serveur
+
+Les fichiers du site web seront stockés dans un répertoire spécifique.
+
+1. Sur la **machine serveur**, créez un dossier pour votre site. Par exemple depuis le terminal tappez :
+   ```bash
+   mkdir -p ~/site_web
+   cd site_web
+   ```
+
+    ou utilisez l’explorateur de fichiers ou VS Code pour créer ce dossier.
+
+2. Ajoutez des fichiers HTML de test dans ce répertoire. Vous pouvez par exemple utiliser VS Code
+   pour créer ces fichiers. Ajouter des liens entre les pages pour naviguer.
+
+    :::warning
+
+    Assurez-vous d'avoir un fichier qui s'appelle `index.html` pour que le serveur le trouve automatiquement.
+    C'est ce fichier qui sera affiché par défaut lorsque vous accédez au serveur.
+
+    :::
+
+---
+
+## 🔥 Étape 3 — Configurer le pare-feu
+
+Un serveur n'accepte pas toutes les connexions par défaut. Le pare-feu 
+gère les règles d'accès réseau. Il permet de sécuriser le serveur en limitant les accès aux
+seuls services nécessaires. Ici, nous ouvrons seulement le port 8000 (serveur Python). 
+Les ports sont des "portes" logiques par lesquelles les
+données entrent et sortent. Ils sont identifiés par des numéros et sont
+associés à des services spécifiques. Chaque adresse IP peut avoir jusqu'à 65535
+ports.
+
+1. Activez `ufw` et autorisez le port nécessaire avec le terminal de la VM
+   serveur. Les commandes suivantes mettent à jour la liste des paquets,
+   installent `ufw` qui gère le pare-feu, ouvrent le port 8000,
+   activent le pare-feu et affichent son statut :
+
+   ```bash
+   sudo apt update
+   sudo apt install ufw -y
+   sudo ufw allow 8000/tcp    # Port pour le serveur Python
+   sudo ufw enable
+   sudo ufw status
+   ```
+
+---
+
+## 🐍 Étape 4 — Lancer un petit serveur Python
+
+Python inclut un mini serveur HTTP très simple à utiliser. Il suffit
+d'utiliser le module `http.server`. Ce serveur va partager les fichiers
+du dossier courant. Toujours en utilisant le terminal de la VM serveur depuis
+le dossier `site_web` créé précédemment, lancez le serveur avec la commande suivante :
+
+```bash
+python3 -m http.server 8000
+```
+
+Cela va démarrer le serveur sur le port 8000. Testez dans un navigateur à
+   l’intérieur de la machine serveur en allant à l’adresse :
+   `http://127.0.0.1:8000`
+
+---
+
+## 🌐 Étape 5 — Obtenir l'adresse IP du serveur
+
+Pour que la machine cliente puisse se connecter au serveur, vous devez connaître l'adresse IP du serveur.
+
+1. Sur la **VM serveur**, dans un nouveau terminal (gardez le serveur Python actif), tapez :
+   ```bash
+   hostname -I
+   ```
+
+2. Notez l'adresse IP affichée (par exemple : `192.168.0.105`).
+
+:::info
+
+Cette commande affiche toutes les adresses IP de la
+machine. Prenez la première adresse qui ressemble à `192.168.x.x` ou
+`10.x.x.x`.
+
+:::
+
+---
+
+## 💻 Étape 6 — Tester depuis la machine cliente
+
+1. Depuis la **VM client**, ouvrez un navigateur web.
+2. Tapez l'adresse IP de la VM serveur suivie du port 8000. Par exemple si l'adresse IP
+   du serveur est `192.168.0.105`, tapez :
+
+   ```
+   http://192.168.0.105:8000
+   ```
+
+3. Vous devriez voir apparaître votre site web avec le contenu du fichier `index.html`.
+4. Naviguez entre les différentes pages pour vérifier que tout fonctionne.
+
+:::info
+
+👏 Félicitations ! Vous avez mis en place un mini serveur web !
+
+:::
+
+---
+
+## 🧰 Étape 7 — Arrêter le serveur
+
+Pour arrêter le serveur Python, retournez dans le terminal où il s'exécute et appuyez sur : `Ctrl + C`
+
+---
+
+## 🧾 Ce qui manque pour être comme un vrai serveur de production
+
+Notre configuration est suffisante pour des tests en réseau local, mais
+pas pour l'internet public. Un vrai serveur nécessite chiffrement, sécurité,
+supervision et nom de domaine.
+
+
+| Élément                     | Description                                                | Pourquoi                                             |
+| --------------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+| 🔒 HTTPS / SSL              | Utiliser des certificats SSL/TLS                           | Sécurise les échanges, obligatoire pour un vrai site |
+| ⚙️ Serveur web professionnel| Utiliser Nginx, Apache ou Gunicorn                         | Plus performant et sécurisé que le serveur Python    |
+| 🔐 Pare-feu plus restrictif | Autoriser uniquement ports 22, 80, 443                     | Réduit la surface d'attaque                          |
+| 🧍 Utilisateur non-root     | Exécuter le code sous un utilisateur dédié                 | Évite les privilèges excessifs                       |
+| 🔄 Supervision / logs       | Analyser les logs et automatiser les redémarrages          | Assure la fiabilité                                  |
+| 🌍 Nom de domaine           | Associer un DNS public                                     | Accès facile sans IP                                 |
+| 🚀 Démarrage automatique    | Créer un service systemd                                   | Le serveur redémarre automatiquement                 |
+
+
+
